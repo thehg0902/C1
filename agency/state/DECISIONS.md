@@ -329,3 +329,44 @@ the forms and booking skills' job in Phase 5, not in scope here.
   in components.css, token-only (var(--color-surface),
   var(--color-border), var(--color-text-muted), etc.), reuses the
   existing `.card-grid` layout so no new grid CSS was needed.
+
+## Fix - Why We're the Best crew photo overflowed on mobile (2026-07-03)
+
+- decided-by: human (bug report) | `.why__crew-photo` set `max-width: 40rem`
+  (a class selector) without `width: 100%`, which beat the global
+  `img { max-width: 100% }` reset (element selector, lower specificity)
+  - the image rendered up to 640px wide regardless of viewport,
+  overflowing a 375px phone screen. Fixed by adding `width: 100%` so the
+  image is always constrained by its container first, with `max-width`
+  only capping it on wide screens. Verified: zero horizontal overflow at
+  375px, image renders full-width and proportional.
+
+## Feature - testimonials converted to an auto-advancing carousel (2026-07-03)
+
+- decided-by: human | Expanded from 3 static cards to 6 slides in a
+  carousel (`.testimonial-carousel`, `data-carousel` on the root per
+  component-api rule 4), each with a 5-star rating row added above the
+  author name. This deliberately goes against the components skill's
+  "no autoplay" carousel guidance (explicit user instruction outranks
+  skill bodies on the precedence ladder) - mitigated responsibly rather
+  than ignored: auto-advance pauses on hover/focus, respects
+  `prefers-reduced-motion` (never starts), and prev/next buttons + dot
+  indicators give full manual/keyboard control regardless of motion
+  preference.
+- Star ratings are a visual placeholder (5 stars on every slide,
+  `aria-label` itself marked `[PLACEHOLDER: confirm star rating]`) - not
+  a claimed/verified aggregate rating. Extended the existing testimonials
+  question in QUESTIONS.md to ask for the real per-review rating
+  alongside the real quote text when the human provides them.
+- `src/js/main.js`: new `initTestimonialCarousel` IIFE - defensive
+  (bails if `[data-carousel]` or any required child is missing),
+  generates dot buttons from slide count, `setInterval`-based
+  auto-advance restarted on manual interaction.
+- Verified via direct DOM/computed-style inspection (not just
+  screenshots, which produced a visually blank capture for this
+  transform-heavy component - confirmed via scrollHeight/clientHeight,
+  computed color/background, and transform values that this is a
+  screenshot-tool rendering artifact, not a real bug): content isn't
+  clipped, text isn't invisible-on-invisible, auto-advance correctly
+  wraps around after slide 6, and a manual button click advances the
+  transform by exactly one slide-width.

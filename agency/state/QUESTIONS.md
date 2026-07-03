@@ -56,13 +56,20 @@ agency/state/DECISIONS.md; kept here only as an audit trail.
 
 ## Open - retainer edit (2026-07-03)
 
-- [ ] Q: Real testimonial quotes for the new Home page testimonials
-      section - who said it (name, and city/neighbourhood if they're
-      comfortable) and the exact quote (verbatim, trimming with [...] is
-      fine, rewriting is not)? Need 3 to fill the section (client.md's
-      "leave empty space to add later" note - this is that later).
-      A: (pending) - index.html currently ships with 3
-      `[PLACEHOLDER: ...]` testimonial cards (quote + name) so the section
-      exists and is styled; qa-review's automated check will correctly
-      FAIL on these until real quotes replace them - do not ship to
-      production with placeholders still in place.
+- [ ] Q: Real testimonial quotes for the Home page testimonials carousel
+      - who said it (name, and city/neighbourhood if they're
+      comfortable), the exact quote (verbatim, trimming with [...] is
+      fine, rewriting is not), and the actual star rating for each one
+      if known (e.g. from Google reviews)? Need 6 to fill the carousel
+      (client.md's "leave empty space to add later" note - this is that
+      later).
+      A: (pending) - index.html currently ships with 6
+      `[PLACEHOLDER: ...]` testimonial slides (quote + name), each
+      defaulted to a visual 5-star display with the rating itself also
+      marked `[PLACEHOLDER: confirm star rating]` in the aria-label -
+      this is a design placeholder, not a claimed/verified rating, and
+      must be confirmed per-review (or corrected if any review wasn't
+      actually 5 stars) before real content goes in. qa-review's
+      automated check will correctly FAIL on these until real quotes
+      replace them - do not ship to production with placeholders still
+      in place.

@@ -120,3 +120,90 @@
     loadWidget();
   }
 })();
+
+(function initTestimonialCarousel() {
+  var root = document.querySelector("[data-carousel]");
+  if (!root) return;
+  var track = root.querySelector(".testimonial-carousel__track");
+  var slides = track ? Array.prototype.slice.call(track.children) : [];
+  var prevBtn = root.querySelector("[data-carousel-prev]");
+  var nextBtn = root.querySelector("[data-carousel-next]");
+  var dotsWrap = root.querySelector("[data-carousel-dots]");
+  if (!track || !slides.length || !prevBtn || !nextBtn || !dotsWrap) return;
+
+  var AUTO_MS = 6000;
+  var reduceMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)"
+  ).matches;
+  var index = 0;
+  var timer = null;
+
+  slides.forEach(function (_, i) {
+    var dot = document.createElement("button");
+    dot.type = "button";
+    dot.className = "testimonial-carousel__dot";
+    dot.setAttribute("role", "tab");
+    dot.setAttribute("aria-label", "Go to testimonial " + (i + 1));
+    dot.setAttribute("aria-selected", i === 0 ? "true" : "false");
+    dot.addEventListener("click", function () {
+      goTo(i);
+      restartAuto();
+    });
+    dotsWrap.appendChild(dot);
+  });
+  var dots = Array.prototype.slice.call(dotsWrap.children);
+
+  function update() {
+    track.style.transform = "translateX(-" + index * 100 + "%)";
+    dots.forEach(function (dot, i) {
+      dot.setAttribute("aria-selected", i === index ? "true" : "false");
+    });
+  }
+
+  function goTo(i) {
+    index = (i + slides.length) % slides.length;
+    update();
+  }
+
+  function next() {
+    goTo(index + 1);
+  }
+
+  function prev() {
+    goTo(index - 1);
+  }
+
+  function startAuto() {
+    if (reduceMotion) return;
+    timer = setInterval(next, AUTO_MS);
+  }
+
+  function stopAuto() {
+    if (timer) {
+      clearInterval(timer);
+      timer = null;
+    }
+  }
+
+  function restartAuto() {
+    stopAuto();
+    startAuto();
+  }
+
+  prevBtn.addEventListener("click", function () {
+    prev();
+    restartAuto();
+  });
+  nextBtn.addEventListener("click", function () {
+    next();
+    restartAuto();
+  });
+
+  root.addEventListener("mouseenter", stopAuto);
+  root.addEventListener("mouseleave", startAuto);
+  root.addEventListener("focusin", stopAuto);
+  root.addEventListener("focusout", startAuto);
+
+  update();
+  startAuto();
+})();
