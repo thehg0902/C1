@@ -286,3 +286,19 @@ the forms and booking skills' job in Phase 5, not in scope here.
   them in sync (~124KB). Verified with fresh localStorage: video now
   autoplays, plays through its full (short) duration, and freezes on
   the last frame automatically, matching the designed behavior.
+
+## Retainer edit - hero video now loops continuously (2026-07-03)
+
+- decided-by: human | Replaces the previous play-once-then-freeze +
+  returning-visitor localStorage pattern (which itself is now removed as
+  dead code, not just unused).
+- `src/index.html`: added the native `loop` attribute to the hero
+  `<video>` - the browser handles the actual repeat, no JS needed for
+  that part.
+- `src/js/hero.js` simplified to: if `prefers-reduced-motion: reduce`,
+  do nothing (poster frame stands as a static hero); otherwise call
+  `video.play()` and let `loop` handle the rest. Same
+  reduced-motion-early-return shape already used in `js/animations.js`.
+- Verified live: currentTime wrapped from ~4.8s back to ~0.8s after
+  waiting past the video's 7s duration, confirming it loops rather than
+  stopping.
