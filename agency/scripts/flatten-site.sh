@@ -14,5 +14,6 @@ TARGET="$1"
 mkdir -p "$TARGET"
 cp -r src/. "$TARGET/"
 cp -r assets "$TARGET/assets"
+find "$TARGET" -name '.gitkeep' -delete
 grep -rlZ '\.\./assets/' "$TARGET" --include='*.html' --include='*.css' \
   | xargs -0 -r sed -i 's#\.\./assets/#assets/#g'
