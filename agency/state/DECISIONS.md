@@ -370,3 +370,30 @@ the forms and booking skills' job in Phase 5, not in scope here.
   clipped, text isn't invisible-on-invisible, auto-advance correctly
   wraps around after slide 6, and a manual button click advances the
   transform by exactly one slide-width.
+
+## Retainer edit - carousel motion redesigned, cards squared (2026-07-03)
+
+- decided-by: human | Replaced the horizontal slide-track (translateX,
+  described as feeling like a "snap") with a 3D crossfade: cards default
+  to `opacity:0; transform: rotateY(35deg) scale(0.8)` and animate to
+  `opacity:1; rotateY(0) scale(1)` via `.is-active`, inside a
+  `perspective: 1400px` container - gives the "spinning in and out" look
+  requested rather than a flat lateral slide.
+- Card shape: was 42rem wide x content-height (~150-190px, a flat wide
+  rectangle). Now 26rem x 24rem min-height (416x384px) - noticeably
+  square, content vertically centered within it via flexbox.
+- Fixed a real gap the redesign surfaced: the previous CSS had zero
+  no-JS fallback (all slides would start invisible until JS added a
+  class - if JS failed to load, the section would render blank,
+  violating component-api rule 5). Restructured using the same
+  `.is-ready`-gate pattern already established for entrance animations
+  (`.anim-ready` in base.css): the crossfade/absolute-positioning CSS
+  only activates under `[data-carousel].is-ready`, which JS adds itself
+  right before running - so without JS, all 6 testimonial figures just
+  stack and display normally (first one visible in the initial viewport,
+  same as any static content).
+- Verified via direct DOM/computed-style inspection AND a working
+  screenshot this time (426x384 card, visible quote/stars/name,
+  identity-matrix transform + opacity:1 on the active card,
+  matrix3d + opacity:0 + pointer-events:none on inactive ones) and a
+  live manual next-button click correctly advancing the active index.

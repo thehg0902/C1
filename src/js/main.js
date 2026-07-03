@@ -131,6 +131,8 @@
   var dotsWrap = root.querySelector("[data-carousel-dots]");
   if (!track || !slides.length || !prevBtn || !nextBtn || !dotsWrap) return;
 
+  root.classList.add("is-ready");
+
   var AUTO_MS = 6000;
   var reduceMotion = window.matchMedia(
     "(prefers-reduced-motion: reduce)"
@@ -154,7 +156,9 @@
   var dots = Array.prototype.slice.call(dotsWrap.children);
 
   function update() {
-    track.style.transform = "translateX(-" + index * 100 + "%)";
+    slides.forEach(function (slide, i) {
+      slide.classList.toggle("is-active", i === index);
+    });
     dots.forEach(function (dot, i) {
       dot.setAttribute("aria-selected", i === index ? "true" : "false");
     });
