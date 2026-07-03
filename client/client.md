@@ -3,52 +3,68 @@
 <!-- Replace every TODO. Delete comments. See client.schema.md for rules. -->
 
 ## Business
-- Name: TODO
-- Niche: TODO (e.g. coffee shop, HVAC, dental clinic, gym, restaurant)
-- Description: TODO one line
-
+- Name: C Plus Roofing Inc
+- Niche: Roofing
+- Description: Family owned trustworthy Guys thats in business for over 15 years. 
 ## Contact
-- Phone: TODO
-- Email: TODO
-- Address: TODO
+- Phone: (647) 732-1484
+- Email: na
+- Address: na
 
 ## Services
-- TODO service 1
-- TODO service 2
+Roofing
+Attic venting
+Gutter installation
+Gutter repair
+Roof inspection
+Roof installation
+Roof repair
+Skylight installation
+Skylight repair
+Roof damage repair
 
 ## Pages
 - Home
-- TODO (About / Services / Contact / ...)
+- what we do 
+- why we are the best
+- Service
+- Contact
 
 ## Brand
-- Colors: TODO (hex codes, or "none - propose")
-- Logo: TODO (path in client/assets-intake/, or "none - text logo")
+- Colors: Primary Brand       #DC5E0F
+Secondary Brand     #F59208
+Accent              #F7BE2B
+
+Text Dark           #22120D
+Background Light    #F2F1EB
+Neutral Gray        #BBAB9D
+- Logo: inside asset
 
 ## Audience
-TODO who must this site convince, and to do what
+convince audience to book, usually emergency or medium to high intent home owners with potential or on going problems. 
 
 ## Mood
-TODO 3-6 adjectives
+Bold • Reliable • Hardworking • Professional • Energetic • Trustworthy
 
 ## Stack
 animation: css-only
 3d: no
-booking: none
+booking: calendly
 forms: formspree
 email-marketing: none
 analytics: none
-hero-media: propose
+hero-media: video
 
 ## Links
-- Google Maps: TODO or n/a
-- Google Business Profile: TODO or n/a
-- Socials: TODO or n/a
+- Google Maps: na
+- Google Business Profile: https://share.google/KEUO6RVBC5h8qeuM5
+- Socials: na
 
 ## Testimonials
-- TODO or n/a
+- leave empty space to add later
 
 ## Photos
-- TODO what's provided, what needs generation
+- logo exists, 6 photo indexed image1-6 of operation photos. generate every other image assets if needed
 
 ## Special requests
-- TODO or n/a
+- na
