@@ -5,9 +5,8 @@ logic, no .md process files. Run from repo root.
 Rebuilds an orphan `client-delivery` branch from scratch each run (same
 model as a gh-pages branch) via a throwaway git worktree, so the human's
 current branch/working tree is never touched. Reuses
-agency/scripts/flatten-site.sh - the same src/+assets/ flattening logic
-already proven in .github/workflows/deploy-pages.yml - so there is one
-source of truth for that transform.
+agency/scripts/flatten-site.sh - the same src/ copy step already used by
+.github/workflows/deploy-pages.yml - so there is one source of truth.
 """
 import argparse
 import pathlib

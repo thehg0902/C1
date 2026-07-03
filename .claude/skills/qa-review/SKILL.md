@@ -14,7 +14,7 @@ Nothing ships with broken links, leftover placeholders, contract
 violations, or drifted shared markup.
 
 ## Inputs
-src/, assets/, state files, agency/contracts/.
+src/ (includes assets/), agency/state/ files, agency/contracts/.
 
 ## Outputs
 Pass/fail per check in BUILD_STATE.md notes; fixes applied.

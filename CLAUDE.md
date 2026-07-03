@@ -57,7 +57,8 @@ conflict to `agency/state/QUESTIONS.md` and take the reversible option.
 - `agency/client/client.md` — the spec. `agency/client/client.schema.md` — required fields.
 - `agency/contracts/` — design-tokens, file-structure, component-api, media-log.
 - `agency/state/` — BUILD_STATE.md, DECISIONS.md, QUESTIONS.md, MEDIA_LOG.md.
-- `src/` — the website being built. `assets/` — per agency/contracts/file-structure.md.
+- `src/` — the website being built, fully self-contained (includes
+  `src/assets/` nested inside it) per agency/contracts/file-structure.md.
 - `agency/scripts/` — repo utilities (validate, lint, registry, flatten-site,
   export-client). Run, don't read.
 - `agency/` itself — everything agency-internal: process, client intake,

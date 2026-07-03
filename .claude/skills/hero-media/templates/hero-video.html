@@ -1,8 +1,8 @@
 <section class="section section--hero" id="hero">
   <div class="hero__media">
     <video class="hero__video" muted playsinline preload="metadata"
-           poster="../assets/images/hero-poster.webp" data-hero-video>
-      <source src="../assets/video/hero.mp4" type="video/mp4">
+           poster="assets/images/hero-poster.webp" data-hero-video>
+      <source src="assets/video/hero.mp4" type="video/mp4">
     </video>
   </div>
   <div class="container hero__content">
@@ -11,4 +11,6 @@
     <a class="btn btn--primary" href="#contact"><!-- CTA --></a>
   </div>
 </section>
-<!-- Adjust ../ paths to page depth. Poster = final frame of the video. -->
+<!-- assets/ is nested inside src/ (contracts/file-structure.md) - pages
+     at src/ root reference it directly; adjust for any page depth. Poster
+     = final frame of the video. -->

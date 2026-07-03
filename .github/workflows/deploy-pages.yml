@@ -23,7 +23,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Assemble site (src/ + assets/ flattened into one root)
+      - name: Copy src/ (self-contained, includes assets/) as the site root
         run: bash agency/scripts/flatten-site.sh _site
 
       - uses: actions/configure-pages@v5

@@ -208,3 +208,30 @@ the forms and booking skills' job in Phase 5, not in scope here.
   Purely aesthetic per the client's request - never blocks content, site
   is fully functional underneath and without JS. Added to all 5 pages
   identically, right after `<body>`.
+
+## Restructure - assets/ moved inside src/ (2026-07-03)
+
+- decided-by: human | Moved `assets/` from a sibling of `src/` to nested
+  inside it (`src/assets/`), so `src/` alone is the complete, zippable
+  deliverable - matches the exact goal `/export-client` already serves,
+  just simpler now (no assembly step needed at all).
+- Updated: all HTML `../assets/` -> `assets/` (5 pages); CSS
+  `../../assets/` -> `../assets/` (tokens.css, pages.css);
+  `agency/contracts/file-structure.md` bumped to v1.1.0 with the new
+  canonical tree + a changelog entry; `agency/state/MEDIA_LOG.md`'s 13
+  file-column paths updated to `src/assets/...` (repo-root-relative, per
+  the contract rule and what qa-review's check.py expects);
+  `agency/scripts/flatten-site.sh` simplified from a two-directory
+  copy + `../assets/` path-rewrite down to a plain `cp -r src/.` (no
+  rewriting needed anymore - behavior verified identical via a local dry
+  run before relying on it); `.github/workflows/deploy-pages.yml` and
+  `agency/scripts/export-client.py` inherit the simplification
+  automatically since both call the shared script.
+- Bonus simplification this unlocked: `deploy-hostinger` skill's
+  "target subdir src/ vs. production-branch layout" decision from the
+  original contract is no longer a real decision - `src/` is
+  self-contained now, so targeting it directly in hPanel's Git
+  integration is unambiguously correct. Updated the skill accordingly.
+- Verified end-to-end in a local preview: CSS/JS/fonts/logo/hero
+  video/service icons all load with zero broken refs and zero console
+  errors on both index.html and services.html.

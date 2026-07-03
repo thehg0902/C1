@@ -7,7 +7,7 @@
   --why-overlay: color-mix(in srgb, var(--color-surface) 94%, transparent);
   background-image:
     linear-gradient(var(--why-overlay), var(--why-overlay)),
-    url("../../assets/images/texture-shingle.webp");
+    url("../assets/images/texture-shingle.webp");
   background-size: 480px;
   background-repeat: repeat;
 }

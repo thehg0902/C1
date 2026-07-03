@@ -11,7 +11,7 @@ metadata: {version: 1.0.0, category: deploy, tier: E}
 Push-to-deploy: the repo's deploy branch is the live site.
 
 ## Inputs
-QA-passed src/ + assets/, Hostinger repo connection (one-time setup below),
+QA-passed src/ (self-contained), Hostinger repo connection (one-time setup below),
 human deploy confirmation (CLAUDE.md invariant + hook gate).
 
 ## Outputs
@@ -27,10 +27,10 @@ Live site; deploy record (URL, date, commit) in BUILD_STATE.md.
    merges. Deploy = merge main -> production, push. The pre-deploy hook
    blocks push when QA isn't done - do not bypass.
 3. Hostinger serves the repo as-is: file-structure contract must place
-   deployables correctly. If the Git target dir maps to repo root, add a
-   one-time decision: either target subdir src/ in hPanel, or a
-   production-branch layout where src/ contents sit at root - log which
-   in DECISIONS.md at first deploy and never mix.
+   deployables correctly. `src/` is fully self-contained (assets/ nests
+   inside it) - target subdirectory `src/` in hPanel's Git integration
+   and the whole deliverable is already at the right shape, no assembly
+   step needed.
 4. Post-deploy checks (do all, record results): live URL 200s per page;
    assets load (no mixed-content, correct paths); form test submission;
    Calendly opens; https padlock; sitemap.xml reachable; analytics
