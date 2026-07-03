@@ -27,7 +27,7 @@
 
   form.addEventListener("submit", function (event) {
     if (form.getAttribute("action").indexOf("YOUR_FORM_ID") !== -1) {
-      // Formspree form ID not yet configured - see state/QUESTIONS.md.
+      // Formspree form ID not yet configured.
       // Let the native submit fall through rather than silently failing.
       return;
     }
@@ -62,8 +62,8 @@
   if (!container) return;
   var url = container.getAttribute("data-calendly-url");
   if (!url || url.indexOf("YOUR_CALENDLY_LINK") !== -1) {
-    // Calendly link not yet configured - see state/QUESTIONS.md. Leave the
-    // static fallback link (already in the markup) as the working path.
+    // Calendly link not yet configured. Leave the static fallback link
+    // (already in the markup) as the working path.
     return;
   }
 

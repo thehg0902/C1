@@ -4,6 +4,12 @@
 **Status:** Architecture design only. No skill files generated yet.
 **Date:** 2026-07-02
 
+> **Superseded in part (2026-07-03):** the repo was restructured so
+> agency-internal folders (`client/`, `contracts/`, `state/`, `scripts/`,
+> `docs/`) now live under `agency/` — see `agency/docs/CHANGELOG.md`. The
+> folder tree below reflects the pre-restructure layout and is kept for
+> historical record; it is not the current layout.
+
 ---
 
 ## 0. Evidence Basis — Read This First

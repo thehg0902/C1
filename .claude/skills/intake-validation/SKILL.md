@@ -1,6 +1,6 @@
 ---
 name: intake-validation
-description: Validate client/client.md against client/client.schema.md and
+description: Validate agency/client/client.md against agency/client/client.schema.md and
   turn every gap into a client question. Use at the start of every build
   (pipeline Phase 0) or whenever client.md changes. Not for validating
   code or site output (see qa-review).
@@ -13,18 +13,18 @@ Convert an incomplete client brief into either a green light or a precise
 question list, so no phase ever runs on invented facts.
 
 ## Inputs
-client/client.md, client/client.schema.md
+agency/client/client.md, agency/client/client.schema.md
 
 ## Outputs
-state/QUESTIONS.md entries; phase 0 status in state/BUILD_STATE.md.
+agency/state/QUESTIONS.md entries; phase 0 status in agency/state/BUILD_STATE.md.
 
 ## Rules
-1. Run `python3 scripts/validate-client-md.py` first. It is authoritative
+1. Run `python3 agency/scripts/validate-client-md.py` first. It is authoritative
    for missing/TODO required sections and malformed Stack flags.
 2. Classify each gap: BLOCKER (required section missing/TODO) or
    SOFT (optional section missing that would improve quality).
 3. Every gap becomes one specific, answerable question in
-   state/QUESTIONS.md - phrased for a non-technical business owner.
+   agency/state/QUESTIONS.md - phrased for a non-technical business owner.
    Bad: "Provide brand guidelines." Good: "Do you have exact brand colors
    (hex codes)? If not, reply 'propose' and I'll design a palette."
 4. BLOCKERs: mark phase 0 blocked and stop the pipeline. SOFT gaps:

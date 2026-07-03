@@ -2,7 +2,7 @@
 name: design-tokens
 description: Produce src/css/tokens.css - the complete design token set
   (colors, type scale, spacing, motion) implementing the approved design
-  direction per contracts/design-tokens.md. Use in Phase 2 after
+  direction per agency/contracts/design-tokens.md. Use in Phase 2 after
   design-direction. Not for component CSS (layout-systems, components).
 metadata: {version: 1.0.0, category: design, tier: A}
 ---
@@ -12,8 +12,8 @@ metadata: {version: 1.0.0, category: design, tier: A}
 One file, one source of truth for every visual value on the site.
 
 ## Inputs
-Design rationale in state/DECISIONS.md, client.md Brand colors,
-contracts/design-tokens.md (the required token list - obey exactly).
+Design rationale in agency/state/DECISIONS.md, client.md Brand colors,
+agency/contracts/design-tokens.md (the required token list - obey exactly).
 
 ## Outputs
 src/css/tokens.css defining every token in the contract, nothing else.

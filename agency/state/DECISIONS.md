@@ -44,7 +44,7 @@ and again in a bottom `cta` section on every page.
 copywriting rules forbid fabricating any. Will not be added as an empty
 stub either (visibly empty sections read as unfinished).
 
-Slugs kept kebab-case per contracts/file-structure.md: `what-we-do.html`,
+Slugs kept kebab-case per agency/contracts/file-structure.md: `what-we-do.html`,
 `why-choose-us.html` (clearer than a literal "why-we-are-best" reading),
 `services.html`, `contact.html`.
 
@@ -143,7 +143,7 @@ site-wide: direct, confident, benefit-before-feature, no hype adjectives
 ("best", "top-rated") without proof.
 
 Asset filename convention decided here for Phase 5 (image-optimization) to
-follow when it processes client/assets-intake/ into assets/: logo ->
+follow when it processes agency/client/assets-intake/ into assets/: logo ->
 assets/images/logo.webp; the 6 supplied operation photos -> gallery-1.webp
 through gallery-6.webp (mapping order: image1.png=1, image2.jpg=2,
 image3.jpg=3, "image 4.jpg"=4, image5.jpg=5, image6.webp=6); hero.mp4 ->

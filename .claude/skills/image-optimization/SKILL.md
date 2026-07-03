@@ -13,7 +13,7 @@ Nothing enters assets/ raw. Every file web-ready, budget-compliant, named
 per contract.
 
 ## Inputs
-Files from client/assets-intake/ or fresh generations; performance budgets.
+Files from agency/client/assets-intake/ or fresh generations; performance budgets.
 
 ## Outputs
 Optimized files in assets/images|video per file-structure contract.
@@ -26,14 +26,14 @@ Optimized files in assets/images|video per file-structure contract.
 3. Video -> hero-media encoding settings (references there are canonical);
    extract final frame as {name}-poster.webp.
 4. Tooling: check availability first (which cwebp ffmpeg magick). Prefer
-   scripts/optimize.sh; if tools are missing in the environment, DO NOT
+   agency/scripts/optimize.sh; if tools are missing in the environment, DO NOT
    fake it - list exact commands for the user to run locally and mark the
    asset as pending-optimization in MEDIA_LOG.
 5. Record final byte sizes in MEDIA_LOG prompt-summary or notes - budgets
    are verified numbers, not vibes.
 
 ## Scripts
-- scripts/optimize.sh <file> - converts per rules; prints before/after bytes
+- agency/scripts/optimize.sh <file> - converts per rules; prints before/after bytes
 
 ## Anti-patterns
 - Committing multi-MB originals to the repo; resizing with CSS instead of

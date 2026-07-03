@@ -1,13 +1,14 @@
 # Skill Registry (auto-generated - do not hand-edit)
 
-Regenerate: `python3 scripts/generate-skill-registry.py`
+Regenerate: `python3 agency/scripts/generate-skill-registry.py`
 
 | skill | tier | category | version | description |
 |---|---|---|---|---|
+| frontend-design | - | - | - | Guidance for distinctive, intentional visual design when building new UI or reshaping an existing one. Helps with aesthetic direction, typography, and making choices that don't read as templated defaults. license: Complete terms in LICENSE.txt |
 | copywriting | A | content | 1.0.0 | Write all website copy for a local small business - headlines, section copy, CTAs, about pages - in the client's voice, conversion-first, locally grounded. Use in pipeline Phase 3 and for copy edits. Not for meta tags/schema (seo-technical) or emails. |
 | design-direction | A | design | 1.0.0 | Translate client mood adjectives + niche into a concrete visual direction (style, imagery, layout personality) before any tokens or code. Use in pipeline Phase 2 before design-tokens. Not for producing CSS (design-tokens does that). |
-| design-tokens | A | design | 1.0.0 | Produce src/css/tokens.css - the complete design token set (colors, type scale, spacing, motion) implementing the approved design direction per contracts/design-tokens.md. Use in Phase 2 after design-direction. Not for component CSS (layout-systems, components). |
-| intake-validation | A | process | 1.0.0 | Validate client/client.md against client/client.schema.md and turn every gap into a client question. Use at the start of every build (pipeline Phase 0) or whenever client.md changes. Not for validating code or site output (see qa-review). |
+| design-tokens | A | design | 1.0.0 | Produce src/css/tokens.css - the complete design token set (colors, type scale, spacing, motion) implementing the approved design direction per agency/contracts/design-tokens.md. Use in Phase 2 after design-direction. Not for component CSS (layout-systems, components). |
+| intake-validation | A | process | 1.0.0 | Validate agency/client/client.md against agency/client/client.schema.md and turn every gap into a client question. Use at the start of every build (pipeline Phase 0) or whenever client.md changes. Not for validating code or site output (see qa-review). |
 | qa-review | A | qa | 1.0.0 | Pre-delivery quality gate - automated checks script plus manual review checklist covering correctness, contracts compliance, links, copy placeholders, and cross-page consistency. Use via /qa in Phase 6 and in reduced form for retainer edits. Not for performance budgets (performance) or WCAG depth (accessibility). |
 | site-architecture | A | process | 1.0.0 | Decide page map, navigation, and per-page section composition for a local small-business website. Use in pipeline Phase 1, or when adding/removing pages. Not for visual design (design-direction) or copy (copywriting). |
 | accessibility | B | frontend | 1.0.0 | Meet WCAG 2.1 AA across the site - semantics, contrast, focus, keyboard operability, motion safety. Use in Phase 5 while building and as an audit before QA. Not the generic QA gate (qa-review). |

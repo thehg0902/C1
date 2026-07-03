@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-"""Validate client/client.md against the schema. Exit 1 on blockers."""
+"""Validate agency/client/client.md against the schema. Exit 1 on blockers."""
 import re, sys, pathlib
 
-CLIENT = pathlib.Path("client/client.md")
+CLIENT = pathlib.Path("agency/client/client.md")
 REQUIRED = ["Business", "Contact", "Services", "Pages", "Brand",
             "Audience", "Mood", "Stack"]
 OPTIONAL = ["Links", "Testimonials", "Photos", "Competitors",
@@ -18,7 +18,7 @@ STACK_KEYS = {
 }
 
 if not CLIENT.exists():
-    print("BLOCKER: client/client.md missing"); sys.exit(1)
+    print("BLOCKER: agency/client/client.md missing"); sys.exit(1)
 
 text = CLIENT.read_text(encoding="utf-8")
 sections = {}

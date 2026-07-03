@@ -23,7 +23,7 @@ Rules:
 2. No build step, no framework, no bundler: plain HTML/CSS/JS, deployable
    as static files via Hostinger Git integration.
 3. Every image referenced from HTML lives in assets/images (no hotlinks).
-4. Every generated media asset must have a row in state/MEDIA_LOG.md
+4. Every generated media asset must have a row in agency/state/MEDIA_LOG.md
    (see media-log contract) before it enters assets/.
 5. Third-party embeds (Calendly, maps, Formspree endpoints) are the only
    allowed external references besides analytics.

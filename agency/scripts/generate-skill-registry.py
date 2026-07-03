@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate docs/REGISTRY.md from skill frontmatter. Never hand-edit it."""
+"""Generate agency/docs/REGISTRY.md from skill frontmatter. Never hand-edit it."""
 import re, pathlib
 
 SKILLS = pathlib.Path(".claude/skills")
@@ -25,11 +25,11 @@ for d in sorted(SKILLS.iterdir()):
                  ver.group(1) if ver else "-", desc))
 
 out = ["# Skill Registry (auto-generated - do not hand-edit)",
-       "", "Regenerate: `python3 scripts/generate-skill-registry.py`", "",
+       "", "Regenerate: `python3 agency/scripts/generate-skill-registry.py`", "",
        "| skill | tier | category | version | description |",
        "|---|---|---|---|---|"]
 for name, tier, cat, ver, desc in sorted(rows, key=lambda r: (r[1], r[0])):
     out.append(f"| {name} | {tier} | {cat} | {ver} | {desc} |")
-pathlib.Path("docs").mkdir(exist_ok=True)
-pathlib.Path("docs/REGISTRY.md").write_text("\n".join(out) + "\n", encoding="utf-8")
-print(f"wrote docs/REGISTRY.md ({len(rows)} skills)")
+pathlib.Path("agency/docs").mkdir(exist_ok=True)
+pathlib.Path("agency/docs/REGISTRY.md").write_text("\n".join(out) + "\n", encoding="utf-8")
+print(f"wrote agency/docs/REGISTRY.md ({len(rows)} skills)")

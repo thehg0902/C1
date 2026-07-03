@@ -14,13 +14,13 @@ Nothing ships with broken links, leftover placeholders, contract
 violations, or drifted shared markup.
 
 ## Inputs
-src/, assets/, state files, contracts/.
+src/, assets/, state files, agency/contracts/.
 
 ## Outputs
 Pass/fail per check in BUILD_STATE.md notes; fixes applied.
 
 ## Rules
-1. Run scripts/check.py FIRST; it is authoritative for its checks
+1. Run agency/scripts/check.py FIRST; it is authoritative for its checks
    (placeholders, broken local refs, missing alt, hardcoded colors,
    header/footer drift, TODOs). Fix and re-run to clean.
 2. Manual review after the script, in this order:
@@ -40,7 +40,7 @@ Pass/fail per check in BUILD_STATE.md notes; fixes applied.
    DECISIONS.md as accepted.
 
 ## Scripts
-- scripts/check.py - run from repo root: python3 .claude/skills/qa-review/scripts/check.py
+- agency/scripts/check.py - run from repo root: python3 .claude/skills/qa-review/scripts/check.py
 
 ## Anti-patterns
 - Marking QA done from memory of earlier state instead of re-running.

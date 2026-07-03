@@ -1,8 +1,8 @@
 # client.md Schema  (v1.0.0)
 
-Validated by scripts/validate-client-md.py. Section headers must match
+Validated by agency/scripts/validate-client-md.py. Section headers must match
 exactly. REQUIRED sections missing or containing "TODO" block the pipeline
-at Phase 0 and generate entries in state/QUESTIONS.md.
+at Phase 0 and generate entries in agency/state/QUESTIONS.md.
 
 ## REQUIRED sections
 - `## Business`        - name, niche, one-line description
@@ -10,7 +10,7 @@ at Phase 0 and generate entries in state/QUESTIONS.md.
 - `## Services`        - bullet list, at least one
 - `## Pages`           - bullet list of pages wanted
 - `## Brand`           - colors (hex or "none - propose"), logo path in
-                          client/assets-intake/ or "none - text logo"
+                          agency/client/assets-intake/ or "none - text logo"
 - `## Audience`        - who the site must convince
 - `## Mood`            - 3-6 adjectives
 - `## Stack`           - flags, one per line, exact keys:

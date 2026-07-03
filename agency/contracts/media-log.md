@@ -1,6 +1,6 @@
 # Contract: MEDIA_LOG.md Format  (v1.0.0)
 
-`state/MEDIA_LOG.md` is the ledger of ALL generated media. One markdown
+`agency/state/MEDIA_LOG.md` is the ledger of ALL generated media. One markdown
 table per build, columns exactly:
 
 | id | date | type | model | prompt-summary | credits | storyboard-approved | file | status |

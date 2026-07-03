@@ -21,9 +21,9 @@ Notes:
 - Phase 0: booking flag normalized "leave space for calandly integration" ->
   calendly (0 blockers after fix). Soft gaps (Competitors, Style references,
   Autonomy sections absent) and contact "na" fields resolved directly with
-  human, not left pending — see state/QUESTIONS.md "Resolved at intake" and
-  state/DECISIONS.md. Python3/python not installed on this machine, so
-  scripts/validate-client-md.py was traced manually against its source
+  human, not left pending — see agency/state/QUESTIONS.md "Resolved at intake" and
+  agency/state/DECISIONS.md. Python3/python not installed on this machine, so
+  agency/scripts/validate-client-md.py was traced manually against its source
   rather than executed.
 - Phase 1: 5-page multi-page site (index, what-we-do, why-choose-us,
   services, contact); consolidated single Services page (10 services, no
@@ -72,12 +72,12 @@ Notes:
   toggle works, hero video wires up with no console errors, contact
   form/honeypot render correctly.
   Explicitly NOT done in this phase (deferred, tracked below):
-  - Formspree form ID and Calendly scheduling link are real client/
+  - Formspree form ID and Calendly scheduling link are real agency/client/
     account values Claude cannot invent - contact.html ships with
     clearly-marked placeholders (YOUR_FORM_ID / YOUR_CALENDLY_LINK);
     main.js detects the placeholders and falls back safely (native
     form submit / static "call us" link) rather than failing silently.
-    Logged as open questions in state/QUESTIONS.md.
+    Logged as open questions in agency/state/QUESTIONS.md.
   - legal-pages (privacy/terms) and seo-technical (OG tags, JSON-LD
     schema, sitemap.xml, robots.txt) were NOT run: both skills describe
     themselves as Phase 5 work, but the literal /build command's Phase
@@ -105,7 +105,7 @@ Notes:
   - MEDIA_LOG.md: fixed a real bug found during this pass - M001 had
     all 10 icon file paths crammed into one cell, which would fail the
     script's per-row single-file existence check and violates
-    contracts/media-log.md ("file is the final path", singular). Split
+    agency/contracts/media-log.md ("file is the final path", singular). Split
     into M001a-M001j, one row per icon. All MEDIA_LOG generated/in-use
     rows now point to files that exist on disk (verified 13/13).
   - Footer markup is byte-identical across all 5 pages (no drift).
@@ -145,7 +145,7 @@ Notes:
     disabled.
   No criticals found. Two known, already-logged gaps carried forward
   (not new QA findings, not blockers - see Phase 5 notes and
-  state/QUESTIONS.md): real Formspree form ID + Calendly link still
+  agency/state/QUESTIONS.md): real Formspree form ID + Calendly link still
   placeholders (fail safely, don't block QA), legal-pages/seo-technical
   not run (out of /build's literal Phase 5 scope) - recommend both
   before Phase 7 deploy given the contact form collects personal data.

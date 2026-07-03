@@ -13,10 +13,10 @@ Turn client.md Pages + Services + Audience into a concrete sitemap and a
 section list per page that every later phase builds against.
 
 ## Inputs
-client/client.md (Pages, Services, Audience, Links), contracts/component-api.md
+agency/client/client.md (Pages, Services, Audience, Links), agency/contracts/component-api.md
 
 ## Outputs
-Sitemap + per-page section lists appended to state/DECISIONS.md.
+Sitemap + per-page section lists appended to agency/state/DECISIONS.md.
 
 ## Rules
 1. Default for local businesses: fewer pages, stronger pages. If client
@@ -25,7 +25,7 @@ Sitemap + per-page section lists appended to state/DECISIONS.md.
    justify separate service pages (SEO), otherwise one Services page.
 2. Every page gets: purpose (one line), primary conversion action
    (call / book / form), ordered section list using standard names from
-   contracts/component-api.md.
+   agency/contracts/component-api.md.
 3. Conversion action appears within the first viewport of every page and
    again at the bottom (cta section).
 4. Nav: max 6 items; phone number always visible in header on mobile

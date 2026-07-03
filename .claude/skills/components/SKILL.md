@@ -9,7 +9,7 @@ metadata: {version: 1.0.0, category: frontend, tier: B}
 # Components
 
 ## Purpose
-Consistent, self-contained sections that obey contracts/component-api.md,
+Consistent, self-contained sections that obey agency/contracts/component-api.md,
 adapted per client rather than reinvented per client.
 
 ## Inputs

@@ -2,10 +2,10 @@ node_modules/
 .DS_Store
 *.log
 .env
-client/assets-intake/originals/
+agency/client/assets-intake/originals/
 
 # Raw client uploads (unoptimized source photos/video) - the optimized,
 # deployable versions are tracked under assets/. Keeping these out of git
 # history avoids committing large raw files (e.g. a 65MB source video).
-client/assets-intake/*
-!client/assets-intake/.gitkeep
+agency/client/assets-intake/*
+!agency/client/assets-intake/.gitkeep

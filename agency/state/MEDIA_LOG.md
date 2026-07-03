@@ -1,5 +1,5 @@
 # Media Generation Ledger
-See contracts/media-log.md for format and rules.
+See agency/contracts/media-log.md for format and rules.
 
 Style block (design direction, Phase 2 - "Grounded Trade Confidence"),
 reused verbatim in every image prompt below: "photo-real, warm natural
@@ -27,7 +27,7 @@ below are rough placeholders for planning only.
 
 | id | date | type | model | prompt-summary | credits | storyboard-approved | file | status |
 |----|------|------|-------|----------------|---------|---------------------|------|--------|
-| M001a | 2026-07-03 | image | z_image (Tongyi-MAI) - switched from recraft_v4_1/vector (2.5 credits/icon) to z_image (0.15 credits/icon) per human cost-tradeoff decision; one storyboard decision, split into one row per file per contracts/media-log.md (file = single path) | Flat-line icon, single color line art in --color-primary, service: Roofing; consistent style, no text, no watermarks; services.html card grid | 0.15 | YES | assets/images/icon-roofing.webp | generated |
+| M001a | 2026-07-03 | image | z_image (Tongyi-MAI) - switched from recraft_v4_1/vector (2.5 credits/icon) to z_image (0.15 credits/icon) per human cost-tradeoff decision; one storyboard decision, split into one row per file per agency/contracts/media-log.md (file = single path) | Flat-line icon, single color line art in --color-primary, service: Roofing; consistent style, no text, no watermarks; services.html card grid | 0.15 | YES | assets/images/icon-roofing.webp | generated |
 | M001b | 2026-07-03 | image | z_image (Tongyi-MAI) | Flat-line icon, service: Roof Installation | 0.15 | YES | assets/images/icon-roof-installation.webp | generated |
 | M001c | 2026-07-03 | image | z_image (Tongyi-MAI) | Flat-line icon, service: Roof Repair | 0.15 | YES | assets/images/icon-roof-repair.webp | generated |
 | M001d | 2026-07-03 | image | z_image (Tongyi-MAI) | Flat-line icon, service: Roof Inspection | 0.15 | YES | assets/images/icon-roof-inspection.webp | generated |

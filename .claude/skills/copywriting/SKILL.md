@@ -25,7 +25,7 @@ Final copy written directly into the page HTML (never lorem ipsum).
    every section's copy points toward it.
 2. NEVER invent facts: prices, years in business, certifications, "family
    owned", guarantees, review counts. Missing proof points ->
-   [PLACEHOLDER: ...] + a question in state/QUESTIONS.md.
+   [PLACEHOLDER: ...] + a question in agency/state/QUESTIONS.md.
 3. Voice from Mood adjectives: write 2 candidate hero headlines in
    different registers, pick one, note the register in DECISIONS.md and
    keep it consistent site-wide.

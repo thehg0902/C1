@@ -7,4 +7,4 @@ Handle a retainer client change request: $ARGUMENTS
 4. Verify locally per the skill's checklist, commit with message
    "client-edit: <summary>", then follow /deploy rules (QA gate applies
    in reduced form per the skill).
-5. Log the edit in state/DECISIONS.md (date | client-edit | summary).
+5. Log the edit in agency/state/DECISIONS.md (date | client-edit | summary).

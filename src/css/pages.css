@@ -19,7 +19,7 @@
 }
 
 /* contact.html: representative service-area rooftop photo (no address/map
-   on this site - see state/DECISIONS.md, service-area model). */
+   on this site - service-area business model). */
 .contact__photo {
   border-radius: var(--radius-lg);
   margin-top: var(--space-6);

@@ -13,11 +13,11 @@ Prevent generic template-looking output by committing to a specific,
 client-appropriate visual direction and writing it down before building.
 
 ## Inputs
-client/client.md (Mood, Audience, Brand, Style references, Niche),
+agency/client/client.md (Mood, Audience, Brand, Style references, Niche),
 niche playbook in references/.
 
 ## Outputs
-A 10-line design rationale in state/DECISIONS.md: direction name, type
+A 10-line design rationale in agency/state/DECISIONS.md: direction name, type
 pairing intent, color intent, imagery style, layout personality, motion
 level.
 

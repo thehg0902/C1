@@ -60,7 +60,7 @@ if len(html_files) > 1:
                 warn(f"{f}: <{tag}> differs from {html_files[0].name} (drift?)")
 
 # media log consistency
-log = ROOT / "state" / "MEDIA_LOG.md"
+log = ROOT / "agency" / "state" / "MEDIA_LOG.md"
 if log.exists():
     for line in log.read_text().splitlines():
         if "| generated" in line or "| in-use" in line:

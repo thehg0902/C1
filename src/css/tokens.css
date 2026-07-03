@@ -1,7 +1,6 @@
 /* Design tokens — C Plus Roofing Inc. Direction: "Grounded Trade Confidence".
-   See state/DECISIONS.md (Phase 2) for rationale and contrast verification.
-   Per contracts/design-tokens.md: :root custom properties + @font-face ONLY.
-   No selectors, no components here. */
+   Rationale and contrast verification recorded during the build process.
+   :root custom properties + @font-face ONLY. No selectors, no components. */
 
 @font-face {
   font-family: "Archivo";
@@ -44,8 +43,8 @@
 }
 
 :root {
-  /* Colors — from client.md Brand + derived per contracts/design-tokens.md.
-     Contrast pairs verified in state/DECISIONS.md (Phase 2 — Design Tokens). */
+  /* Colors — from the client's brand palette, expanded into the full
+     token set. Contrast pairs verified for WCAG AA during the build. */
   --color-primary: #DC5E0F;
   --color-primary-dark: #7A3308;
   --color-accent: #F7BE2B;

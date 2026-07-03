@@ -10,7 +10,7 @@ metadata: {version: 1.0.0, category: frontend, tier: B}
 
 ## Purpose
 Pages that feel designed, not stacked: deliberate rhythm, alignment, and
-responsive behavior per contracts/component-api.md and file-structure.
+responsive behavior per agency/contracts/component-api.md and file-structure.
 
 ## Inputs
 Architecture + design rationale in DECISIONS.md, tokens.css, contracts.

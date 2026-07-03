@@ -15,10 +15,10 @@ human gate before any credit is spent.
 
 ## Inputs
 Design direction imagery style (DECISIONS.md), client.md Photos section
-(what exists vs what's needed), contracts/media-log.md.
+(what exists vs what's needed), agency/contracts/media-log.md.
 
 ## Outputs
-Storyboard rows (status=planned) in state/MEDIA_LOG.md -> after human
+Storyboard rows (status=planned) in agency/state/MEDIA_LOG.md -> after human
 approval -> generated assets in assets/ + updated rows.
 
 ## Rules

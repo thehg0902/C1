@@ -15,7 +15,7 @@ visitor - the agency's signature hero system.
 
 ## Inputs
 client.md Stack hero-media flag, generated assets in assets/video/ (with
-MEDIA_LOG rows), tokens.css, contracts/file-structure.md.
+MEDIA_LOG rows), tokens.css, agency/contracts/file-structure.md.
 
 ## Outputs
 Hero section markup + src/js/hero.js + poster assets wired in.

@@ -7,7 +7,7 @@
 
 These gaps were found during Phase 0 validation and resolved directly with
 the human in the same session rather than left pending. Promoted to
-state/DECISIONS.md; kept here only as an audit trail.
+agency/state/DECISIONS.md; kept here only as an audit trail.
 
 - [x] Q: Stack.booking value "leave space for calandly integration" is not a
       valid enum (calendly|none). Normalize to which value?

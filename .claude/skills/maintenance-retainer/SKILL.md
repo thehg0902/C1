@@ -17,7 +17,7 @@ Change request text ($ARGUMENTS via /client-edit), the shipped repo state.
 
 ## Outputs
 Minimal diff, deployed; log line in DECISIONS.md; (for /handoff)
-docs/HANDOFF.md.
+agency/docs/HANDOFF.md.
 
 ## Rules
 1. Classify the request: content edit (text/hours/price/photo swap) |
@@ -35,7 +35,7 @@ docs/HANDOFF.md.
 6. Photo swaps route through image-optimization; new media through the
    media-generation gate as always.
 
-## Handoff (docs/HANDOFF.md format)
+## Handoff (agency/docs/HANDOFF.md format)
 Live URL; what was built (page list, one line each); hosting & domain
 summary (names, not credentials); what the retainer covers + how to
 request changes (email format: page + what + desired text); response-time
