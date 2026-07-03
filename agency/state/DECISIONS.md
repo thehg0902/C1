@@ -235,3 +235,30 @@ the forms and booking skills' job in Phase 5, not in scope here.
 - Verified end-to-end in a local preview: CSS/JS/fonts/logo/hero
   video/service icons all load with zero broken refs and zero console
   errors on both index.html and services.html.
+
+## Retainer edit - hero redesign: full-bleed video underlay (2026-07-03)
+
+- decided-by: human | Client feedback: the previous side-by-side treatment
+  (video in a rounded card next to the text, per Phase 5's original
+  layout) read as too bright.
+- Changed to a full-bleed video underlay: `.hero__media` moved out of
+  `.container` and made `position: absolute; inset: 0` covering the
+  whole `.section--hero`, with a new `.hero__scrim` overlay
+  (`color-mix(in srgb, var(--color-text) 62%, transparent)` - token-based,
+  not a hardcoded rgba) dimming it. Text switches to
+  `var(--color-surface)` (white) over the video via a
+  `.section--hero:has(.hero__media)` scope, so the 4 text-only hero pages
+  (What We Do, Why We're the Best, Service, Contact) are untouched -
+  verified live.
+- Hero given an explicit `min-height: clamp(26rem, 78vh, 42rem)` for a
+  proper full-bleed feel (previously height was just whatever the
+  side-by-side content needed).
+- `.btn--text` ("Get a Free Quote") recolored to `var(--color-accent)`
+  inside the video hero only, since its default dark-brown color would
+  have had poor contrast against the new dark scrim.
+- Playback logic (js/hero.js play-once-then-freeze, returning-visitor
+  localStorage) untouched - this was a visual/CSS change only.
+- Verified in local preview at desktop and mobile (375px): no horizontal
+  overflow, text clearly readable over the dimmed footage, angled
+  section-transition divider still renders correctly on top of the new
+  scrim/video layers.

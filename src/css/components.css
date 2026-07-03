@@ -115,22 +115,25 @@
 
 /* ---------- Hero ---------- */
 .section--hero {
-  padding-block: var(--space-10) var(--space-9);
+  padding-block: var(--space-9);
   position: relative;
   overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+/* Text-only hero (no video): normal height, cream background, dark text -
+   the video-underlay rules below only apply when .hero__media is present. */
+.section--hero:not(:has(.hero__media)) {
+  padding-block: var(--space-10) var(--space-9);
 }
 
 .hero__inner {
+  position: relative;
+  z-index: 2;
+  width: 100%;
   display: grid;
   gap: var(--space-6);
-}
-
-.hero__media {
-  width: 100%;
-  border-radius: var(--radius-lg);
-  aspect-ratio: 16 / 9;
-  object-fit: cover;
-  background: var(--color-text);
 }
 
 .hero__content { display: grid; gap: var(--space-4); }
@@ -150,10 +153,50 @@
 
 @media (min-width: 1024px) {
   .section--hero:not(:has(.hero__media)) .hero__inner { max-width: 48rem; }
-  .hero__inner:has(.hero__media) {
-    grid-template-columns: 1.1fr 1fr;
-    align-items: center;
-  }
+}
+
+/* Video underlay: full-bleed background video, dimmed with a scrim so
+   light text stays readable over any footage (client feedback: previous
+   side-by-side card treatment read as too bright). */
+.section--hero:has(.hero__media) {
+  min-height: clamp(26rem, 78vh, 42rem);
+}
+
+.hero__media {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background: var(--color-text);
+}
+
+.hero__scrim {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: color-mix(in srgb, var(--color-text) 62%, transparent);
+}
+
+.section--hero:has(.hero__media) .hero__content {
+  color: var(--color-surface);
+  max-width: 40rem;
+}
+
+.section--hero:has(.hero__media) h1 { color: var(--color-surface); }
+
+.section--hero:has(.hero__media) .hero__subhead {
+  color: color-mix(in srgb, var(--color-surface) 85%, transparent);
+}
+
+.section--hero:has(.hero__media) .btn--text {
+  color: var(--color-accent);
+}
+
+.section--hero:has(.hero__media) .btn--text:hover,
+.section--hero:has(.hero__media) .btn--text:focus-visible {
+  color: var(--color-surface);
 }
 
 /* Signature element: angled divider evoking roofline geometry, between
@@ -165,6 +208,7 @@
   right: 0;
   bottom: -1px;
   height: 48px;
+  z-index: 2;
   background: var(--color-bg);
   clip-path: polygon(0 100%, 100% 40%, 100% 100%);
 }
