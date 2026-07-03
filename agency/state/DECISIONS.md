@@ -262,3 +262,27 @@ the forms and booking skills' job in Phase 5, not in scope here.
   overflow, text clearly readable over the dimmed footage, angled
   section-transition divider still renders correctly on top of the new
   scrim/video layers.
+
+## Fix - hero.mp4 reverted to raw unoptimized original (2026-07-03)
+
+- decided-by: claude (bug investigation) | Human reported the hero video
+  not playing. Diagnosed live: `src/assets/video/hero.mp4` had reverted
+  to the raw client-supplied file (70.9MB, 15s, 1764x1176, WITH an aac
+  audio track) instead of the Phase 5 optimized version (1MB-class,
+  7s, muted, 1280w) - almost certainly overwritten during the earlier
+  "move assets/ into src/" operation. Root cause was the asset, not the
+  CSS/JS: with a fresh localStorage, `video.play()` genuinely worked and
+  the promise resolved, it just took the file's real ~15s to play
+  through given the size/format, which read as "not playing" in normal
+  use. (Separately, and expected by design: with a stale
+  `cplusroofing:heroPlayed` localStorage flag from repeat testing, the
+  video correctly skips straight to the frozen last frame every time -
+  that's the intentional returning-visitor behavior, not a bug, and was
+  the first thing ruled out before finding the real cause.)
+- Fix: re-ran the Phase 5 optimization pipeline on the current source
+  (ffmpeg: trim to 7s, strip audio, scale to 1280w, h264/crf30) ->
+  src/assets/video/hero.mp4 now ~1MB. Regenerated
+  src/assets/video/hero-poster.webp from the new trimmed file to keep
+  them in sync (~124KB). Verified with fresh localStorage: video now
+  autoplays, plays through its full (short) duration, and freezes on
+  the last frame automatically, matching the designed behavior.
