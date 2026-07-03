@@ -356,6 +356,17 @@
 }
 
 /* ---------- Testimonials ---------- */
+/* Phone: single-card crossfade carousel (.testimonial-carousel).
+   Tablet/desktop: continuous left-scrolling marquee (.testimonial-marquee),
+   several cards visible at once. Both contain the same real content;
+   only one is ever displayed, toggled at the 640px breakpoint. */
+.testimonial-marquee { display: none; }
+
+@media (min-width: 640px) {
+  .testimonial-carousel { display: none; }
+  .testimonial-marquee { display: block; }
+}
+
 .testimonial-carousel {
   position: relative;
   max-width: 26rem;
@@ -491,6 +502,48 @@
 
 .testimonial-carousel__dot[aria-selected="true"] {
   background: var(--color-primary);
+}
+
+.testimonial-marquee {
+  margin-top: var(--space-8);
+  overflow: hidden;
+  /* Fade the edges rather than hard-clip cards mid-slide. */
+  -webkit-mask-image: linear-gradient(90deg, transparent, var(--color-text) 6%, var(--color-text) 94%, transparent);
+  mask-image: linear-gradient(90deg, transparent, var(--color-text) 6%, var(--color-text) 94%, transparent);
+}
+
+.testimonial-marquee__track {
+  display: flex;
+  gap: var(--space-6);
+  width: max-content;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .testimonial-marquee__track {
+    animation: testimonial-marquee 36s linear infinite;
+  }
+
+  .testimonial-marquee:hover .testimonial-marquee__track,
+  .testimonial-marquee:focus-within .testimonial-marquee__track {
+    animation-play-state: paused;
+  }
+}
+
+@keyframes testimonial-marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.testimonial-marquee .testimonial {
+  flex: 0 0 auto;
+  width: 15rem;
+  padding: var(--space-5);
+  height: auto;
+}
+
+.testimonial-marquee .testimonial__quote {
+  font-size: var(--text-base);
+  margin-bottom: var(--space-4);
 }
 
 /* ---------- Contact ---------- */

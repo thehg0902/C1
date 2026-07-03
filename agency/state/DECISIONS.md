@@ -397,3 +397,45 @@ the forms and booking skills' job in Phase 5, not in scope here.
   identity-matrix transform + opacity:1 on the active card,
   matrix3d + opacity:0 + pointer-events:none on inactive ones) and a
   live manual next-button click correctly advancing the active index.
+
+## Retainer edit - desktop testimonials split into a marquee (2026-07-03)
+
+- decided-by: human | Phone keeps the crossfade carousel from the
+  previous edit unchanged. Desktop/tablet (640px+) gets a continuous
+  left-scrolling marquee instead - human explicitly called the crossfade
+  a "flash card" feel on desktop and wanted a "merry go round": 3-5
+  cards visible at once, all sliding left, a card that exits reappears
+  from the right.
+- Implementation: both `.testimonial-carousel` (phone) and
+  `.testimonial-marquee` (desktop) exist in index.html with the same 6
+  real testimonials; only one is ever displayed, toggled at the 640px
+  breakpoint. No JS needed for the marquee itself - pure CSS: the track
+  contains the 6 cards duplicated once (`aria-hidden="true"` on the
+  duplicate set, so screen readers hear each quote once), animated
+  `translateX(0)` -> `translateX(-50%)` on a linear infinite loop. Since
+  flex `gap` spaces every adjacent pair uniformly, -50% of the doubled
+  track's total width is mathematically exact for a seamless loop (no
+  visible seam/jump) - confirmed this by computing actual card+gap
+  widths, not just eyeballing it.
+- Cards sized 15rem (240px) fixed width - fits 4-5 fully visible in a
+  ~1150-1250px container per contracts/design-tokens.md's 1200px
+  --container-max, satisfying the "3-5 visible" request across common
+  desktop widths.
+- Pauses on hover/focus (`animation-play-state: paused`) so a visitor
+  can actually read a card; respects `prefers-reduced-motion` (animation
+  never starts, cards render as a normal static row - not hidden or
+  broken, just not moving).
+- Edge fade via `mask-image` (a soft gradient at the left/right edges
+  rather than a hard clip mid-card) - built with `var(--color-text)` as
+  the opaque mask stop instead of a literal `#000`, since CSS mask
+  gradients only use the alpha channel; any fully-opaque token works
+  identically and this keeps the file 100% token-only.
+- Verified: `display:flex` + exact 240px card widths + 264px spacing
+  confirmed via direct computed-style/geometry checks (one earlier
+  read showed `display:block` on the same loaded page with no
+  intervening edit - traced to preview-tool eval flakiness already
+  seen several times this session, not a real bug; a clean re-check on
+  a fresh server confirmed `flex` and correct geometry). Screenshot
+  confirms 5 cards visible with edge fade. Mobile re-verified
+  unaffected: carousel visible, marquee `display:none`, zero horizontal
+  overflow at 375px.

@@ -144,6 +144,100 @@
           <button class="testimonial-carousel__btn testimonial-carousel__btn--next" type="button" data-carousel-next aria-label="Next testimonial">&#8250;</button>
           <div class="testimonial-carousel__dots" role="tablist" aria-label="Testimonial slides" data-carousel-dots></div>
         </div>
+
+        <!-- Desktop/tablet only (see components.css breakpoint) - continuous
+             left-scrolling marquee, several cards visible at once. Cards
+             duplicated once for a seamless CSS-only loop; the duplicate set
+             is aria-hidden so screen readers only hear each quote once. -->
+        <div class="testimonial-marquee" aria-hidden="false">
+          <div class="testimonial-marquee__track">
+            <figure class="testimonial">
+              <blockquote class="testimonial__quote">[PLACEHOLDER: customer testimonial quote 1 - verbatim from client, never invented]</blockquote>
+              <div class="testimonial__meta">
+                <div class="testimonial__stars" role="img" aria-label="[PLACEHOLDER: confirm star rating] out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                <figcaption class="testimonial__author">[PLACEHOLDER: customer name 1]</figcaption>
+              </div>
+            </figure>
+            <figure class="testimonial">
+              <blockquote class="testimonial__quote">[PLACEHOLDER: customer testimonial quote 2 - verbatim from client, never invented]</blockquote>
+              <div class="testimonial__meta">
+                <div class="testimonial__stars" role="img" aria-label="[PLACEHOLDER: confirm star rating] out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                <figcaption class="testimonial__author">[PLACEHOLDER: customer name 2]</figcaption>
+              </div>
+            </figure>
+            <figure class="testimonial">
+              <blockquote class="testimonial__quote">[PLACEHOLDER: customer testimonial quote 3 - verbatim from client, never invented]</blockquote>
+              <div class="testimonial__meta">
+                <div class="testimonial__stars" role="img" aria-label="[PLACEHOLDER: confirm star rating] out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                <figcaption class="testimonial__author">[PLACEHOLDER: customer name 3]</figcaption>
+              </div>
+            </figure>
+            <figure class="testimonial">
+              <blockquote class="testimonial__quote">[PLACEHOLDER: customer testimonial quote 4 - verbatim from client, never invented]</blockquote>
+              <div class="testimonial__meta">
+                <div class="testimonial__stars" role="img" aria-label="[PLACEHOLDER: confirm star rating] out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                <figcaption class="testimonial__author">[PLACEHOLDER: customer name 4]</figcaption>
+              </div>
+            </figure>
+            <figure class="testimonial">
+              <blockquote class="testimonial__quote">[PLACEHOLDER: customer testimonial quote 5 - verbatim from client, never invented]</blockquote>
+              <div class="testimonial__meta">
+                <div class="testimonial__stars" role="img" aria-label="[PLACEHOLDER: confirm star rating] out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                <figcaption class="testimonial__author">[PLACEHOLDER: customer name 5]</figcaption>
+              </div>
+            </figure>
+            <figure class="testimonial">
+              <blockquote class="testimonial__quote">[PLACEHOLDER: customer testimonial quote 6 - verbatim from client, never invented]</blockquote>
+              <div class="testimonial__meta">
+                <div class="testimonial__stars" role="img" aria-label="[PLACEHOLDER: confirm star rating] out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                <figcaption class="testimonial__author">[PLACEHOLDER: customer name 6]</figcaption>
+              </div>
+            </figure>
+            <!-- duplicate set for a seamless loop - hidden from assistive tech -->
+            <figure class="testimonial" aria-hidden="true">
+              <blockquote class="testimonial__quote">[PLACEHOLDER: customer testimonial quote 1 - verbatim from client, never invented]</blockquote>
+              <div class="testimonial__meta">
+                <div class="testimonial__stars" role="img" aria-label="[PLACEHOLDER: confirm star rating] out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                <figcaption class="testimonial__author">[PLACEHOLDER: customer name 1]</figcaption>
+              </div>
+            </figure>
+            <figure class="testimonial" aria-hidden="true">
+              <blockquote class="testimonial__quote">[PLACEHOLDER: customer testimonial quote 2 - verbatim from client, never invented]</blockquote>
+              <div class="testimonial__meta">
+                <div class="testimonial__stars" role="img" aria-label="[PLACEHOLDER: confirm star rating] out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                <figcaption class="testimonial__author">[PLACEHOLDER: customer name 2]</figcaption>
+              </div>
+            </figure>
+            <figure class="testimonial" aria-hidden="true">
+              <blockquote class="testimonial__quote">[PLACEHOLDER: customer testimonial quote 3 - verbatim from client, never invented]</blockquote>
+              <div class="testimonial__meta">
+                <div class="testimonial__stars" role="img" aria-label="[PLACEHOLDER: confirm star rating] out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                <figcaption class="testimonial__author">[PLACEHOLDER: customer name 3]</figcaption>
+              </div>
+            </figure>
+            <figure class="testimonial" aria-hidden="true">
+              <blockquote class="testimonial__quote">[PLACEHOLDER: customer testimonial quote 4 - verbatim from client, never invented]</blockquote>
+              <div class="testimonial__meta">
+                <div class="testimonial__stars" role="img" aria-label="[PLACEHOLDER: confirm star rating] out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                <figcaption class="testimonial__author">[PLACEHOLDER: customer name 4]</figcaption>
+              </div>
+            </figure>
+            <figure class="testimonial" aria-hidden="true">
+              <blockquote class="testimonial__quote">[PLACEHOLDER: customer testimonial quote 5 - verbatim from client, never invented]</blockquote>
+              <div class="testimonial__meta">
+                <div class="testimonial__stars" role="img" aria-label="[PLACEHOLDER: confirm star rating] out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                <figcaption class="testimonial__author">[PLACEHOLDER: customer name 5]</figcaption>
+              </div>
+            </figure>
+            <figure class="testimonial" aria-hidden="true">
+              <blockquote class="testimonial__quote">[PLACEHOLDER: customer testimonial quote 6 - verbatim from client, never invented]</blockquote>
+              <div class="testimonial__meta">
+                <div class="testimonial__stars" role="img" aria-label="[PLACEHOLDER: confirm star rating] out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                <figcaption class="testimonial__author">[PLACEHOLDER: customer name 6]</figcaption>
+              </div>
+            </figure>
+          </div>
+        </div>
       </div>
     </section>
 
