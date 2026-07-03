@@ -163,3 +163,48 @@ and footer copy.
 Contact page: Formspree form and Calendly embed are skeleton-only
 (placeholder `action="#"` / placeholder booking text) - actual wiring is
 the forms and booking skills' job in Phase 5, not in scope here.
+
+## Retainer edit - logo format + loading screen (2026-07-03)
+
+- decided-by: human | Client swapped the delivered logo from .webp to
+  .png. All `logo.webp` references across the 5 pages updated to
+  `logo.png` (10 occurrences).
+- Investigated why: the client's raw logo.png has NO real alpha channel
+  (rgb24, confirmed via ffprobe + ffmpeg alphaextract) - the "transparent"
+  checkerboard look is baked into opaque pixels, not real transparency.
+  This was already true of the original file used for the earlier webp
+  conversion; only now visible/flagged.
+- Attempted fix: Higgsfield `remove_background` AI tool. Result was
+  unusable - the model misread the logo's orange paint-splash + bold
+  "C PLUS" text as removable background, keeping only the cursive
+  "Roofing" script as the detected subject (confirmed by extracting and
+  visually inspecting the actual alpha mask, not just previewing the
+  RGB - the preview tool doesn't composite alpha against a checkerboard,
+  so a broken-alpha file can still look correct at a glance). Discarded;
+  not shipped.
+  decided-by: human | why: paid AI background removal isn't reliable for
+  a multi-element graphic-design logo (splash + text) - a photographic
+  subject-detection model doesn't understand "this whole graphic is the
+  subject, only the canvas is background."
+- Interim: `assets/images/logo.png` restored to a clean, correctly
+  resized (400px wide, ~156KB) render of the client's original raw file
+  - visually complete and correct, but still carried the baked
+  pseudo-transparency issue.
+- Resolved same session: client supplied a properly alpha-transparent
+  logo.png (1536x1024 rgba). Verified by extracting and visually
+  inspecting the full alpha mask (not just spot pixel checks) - clean
+  silhouette matching the paint-splash shape exactly, no missing
+  content. Resized to 400px wide (~150KB) for delivery; re-verified the
+  alpha mask survived the resize intact before placing it at
+  `assets/images/logo.png`. No code changes needed beyond the earlier
+  webp->png reference swap, since everything already pointed at this
+  path.
+- New component: `.loading-screen` (src/css/base.css) + init in
+  src/js/main.js - full-viewport fixed overlay, `--color-bg` background,
+  centered logo with a subtle pulse (wrapped in
+  `prefers-reduced-motion: no-preference`), fades and removes itself
+  after `window.load` + a 500ms minimum display time (so it's actually
+  visible on this fast-loading static site, not an imperceptible flash).
+  Purely aesthetic per the client's request - never blocks content, site
+  is fully functional underneath and without JS. Added to all 5 pages
+  identically, right after `<body>`.

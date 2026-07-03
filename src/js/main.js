@@ -1,6 +1,30 @@
 // Init, nav, small interactions. Progressive enhancement only - every
 // component in this file must already work acceptably with JS disabled.
 
+(function initLoadingScreen() {
+  var screen = document.getElementById("loading-screen");
+  if (!screen) return;
+
+  var MIN_DISPLAY_MS = 500;
+  var start = Date.now();
+
+  var hide = function () {
+    var wait = Math.max(MIN_DISPLAY_MS - (Date.now() - start), 0);
+    setTimeout(function () {
+      screen.classList.add("is-hidden");
+      screen.addEventListener("transitionend", function () { screen.remove(); }, { once: true });
+      // Fallback in case transitionend never fires (e.g. reduced motion).
+      setTimeout(function () { if (screen.parentNode) screen.remove(); }, 700);
+    }, wait);
+  };
+
+  if (document.readyState === "complete") {
+    hide();
+  } else {
+    window.addEventListener("load", hide);
+  }
+})();
+
 (function initNavToggle() {
   var nav = document.querySelector(".site-nav");
   var toggle = document.querySelector("[data-nav-toggle]");

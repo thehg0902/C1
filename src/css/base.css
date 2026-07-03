@@ -130,6 +130,45 @@ button { font-family: inherit; }
   .btn:active { transform: scale(0.97); }
 }
 
+/* Loading screen - purely aesthetic, JS removes it after load (see
+   js/main.js). Site is fully usable underneath without JS or before it
+   loads; this never blocks content, only overlays it briefly. */
+.loading-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-bg);
+  transition: opacity var(--duration-slow) var(--ease-standard);
+}
+
+.loading-screen__logo {
+  width: 140px;
+  height: auto;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .loading-screen__logo {
+    animation: loading-pulse 1.1s ease-in-out infinite;
+  }
+}
+
+@keyframes loading-pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(0.92); opacity: 0.75; }
+}
+
+.loading-screen.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .loading-screen { transition: none; }
+}
+
 /* Entrance animation states (JS adds .anim-ready to body, then .is-visible
    per element via IntersectionObserver - see js/animations.js). With JS
    disabled, .anim-ready never appears, so content stays fully visible. */
