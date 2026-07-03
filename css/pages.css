@@ -1,0 +1,26 @@
+/* Page-specific overrides, kept minimal. */
+
+/* why-choose-us.html: subtle shingle-texture accent behind the
+   differentiators section (Phase 2 design direction - photo-real imagery,
+   used sparingly). */
+.section--why {
+  --why-overlay: color-mix(in srgb, var(--color-surface) 94%, transparent);
+  background-image:
+    linear-gradient(var(--why-overlay), var(--why-overlay)),
+    url("../assets/images/texture-shingle.webp");
+  background-size: 480px;
+  background-repeat: repeat;
+}
+
+.why__crew-photo {
+  border-radius: var(--radius-lg);
+  max-width: 40rem;
+  margin-inline: auto;
+}
+
+/* contact.html: representative service-area rooftop photo (no address/map
+   on this site - service-area business model). */
+.contact__photo {
+  border-radius: var(--radius-lg);
+  margin-top: var(--space-6);
+}

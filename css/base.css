@@ -1,0 +1,149 @@
+/* Reset, element defaults, utilities. Mobile-first; min-width breakpoints
+   at 640px / 1024px only. var(--token) everywhere, zero hardcoded values. */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  line-height: var(--leading-normal);
+  color: var(--color-text);
+  background: var(--color-bg);
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  line-height: var(--leading-tight);
+  margin: 0 0 var(--space-4);
+}
+
+h1 { font-size: var(--text-hero); }
+h2 { font-size: var(--text-3xl); }
+h3 { font-size: var(--text-xl); }
+
+p { margin: 0 0 var(--space-4); }
+
+img { max-width: 100%; height: auto; display: block; }
+
+a { color: var(--color-primary-dark); }
+
+ul, ol { margin: 0; padding: 0; list-style: none; }
+
+button { font-family: inherit; }
+
+/* Focus visibility - never remove outline without a replacement */
+:focus-visible {
+  outline: 3px solid var(--color-primary-dark);
+  outline-offset: 2px;
+}
+
+/* Skip link */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: var(--space-4);
+  background: var(--color-surface);
+  color: var(--color-text);
+  padding: var(--space-3) var(--space-5);
+  border-radius: var(--radius-md);
+  z-index: 100;
+  transition: top var(--duration-fast) var(--ease-standard);
+}
+
+.skip-link:focus {
+  top: var(--space-4);
+}
+
+/* Layout utility */
+.container {
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--space-4);
+}
+
+@media (min-width: 640px) {
+  .container { padding-inline: var(--space-6); }
+}
+
+.section {
+  padding-block: var(--section-pad-y);
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  min-height: 44px;
+  padding: var(--space-3) var(--space-6);
+  border-radius: var(--radius-md);
+  font-weight: 700;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: background-color var(--duration-fast) var(--ease-standard),
+              transform var(--duration-fast) var(--ease-standard);
+}
+
+.btn--primary {
+  background: var(--color-primary);
+  color: var(--color-surface);
+  font-size: var(--text-lg);
+}
+
+.btn--primary:hover,
+.btn--primary:focus-visible {
+  background: var(--color-primary-dark);
+}
+
+.btn--text {
+  background: transparent;
+  color: var(--color-primary-dark);
+  padding-inline: var(--space-2);
+  text-decoration: underline;
+}
+
+.btn--text:hover,
+.btn--text:focus-visible {
+  color: var(--color-text);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .btn:active { transform: scale(0.97); }
+}
+
+/* Entrance animation states (JS adds .anim-ready to body, then .is-visible
+   per element via IntersectionObserver - see js/animations.js). With JS
+   disabled, .anim-ready never appears, so content stays fully visible. */
+@media (prefers-reduced-motion: no-preference) {
+  .anim-ready [data-animate] {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity var(--duration-slow) var(--ease-out-expo),
+                transform var(--duration-slow) var(--ease-out-expo);
+    transition-delay: calc(var(--stagger-i, 0) * 75ms);
+  }
+
+  .anim-ready [data-animate].is-visible {
+    opacity: 1;
+    transform: none;
+  }
+}

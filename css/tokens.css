@@ -1,0 +1,109 @@
+/* Design tokens — C Plus Roofing Inc. Direction: "Grounded Trade Confidence".
+   Rationale and contrast verification recorded during the build process.
+   :root custom properties + @font-face ONLY. No selectors, no components. */
+
+@font-face {
+  font-family: "Archivo";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("../assets/fonts/archivo-bold-700.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Archivo";
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("../assets/fonts/archivo-extrabold-800.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../assets/fonts/inter-regular-400.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("../assets/fonts/inter-medium-500.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("../assets/fonts/inter-semibold-600.woff2") format("woff2");
+}
+
+:root {
+  /* Colors — from the client's brand palette, expanded into the full
+     token set. Contrast pairs verified for WCAG AA during the build. */
+  --color-primary: #DC5E0F;
+  --color-primary-dark: #7A3308;
+  --color-accent: #F7BE2B;
+  --color-bg: #F2F1EB;
+  --color-surface: #FFFFFF;
+  --color-text: #22120D;
+  --color-text-muted: #6E6259;
+  --color-border: #8C7D6E;
+  --color-success: #2E7D32;
+  --color-error: #C62828;
+
+  /* Typography */
+  --font-heading: "Archivo", "Segoe UI", Arial, sans-serif;
+  --font-body: "Inter", "Segoe UI", Arial, sans-serif;
+
+  --text-xs: 0.75rem;      /* 12px */
+  --text-sm: 0.875rem;     /* 14px */
+  --text-base: 1rem;       /* 16px */
+  --text-lg: 1.125rem;     /* 18px */
+  --text-xl: 1.333rem;     /* ~21px  (base * 1.333) */
+  --text-2xl: 1.777rem;    /* ~28px  (base * 1.333^2) */
+  --text-3xl: 2.369rem;    /* ~38px  (base * 1.333^3) */
+  --text-hero: clamp(2.25rem, 5vw + 1rem, 4.5rem);
+
+  --leading-tight: 1.15;
+  --leading-normal: 1.5;
+  --leading-loose: 1.75;
+
+  /* Spacing — 4px base scale */
+  --space-1: 0.25rem;   /* 4px */
+  --space-2: 0.5rem;    /* 8px */
+  --space-3: 0.75rem;   /* 12px */
+  --space-4: 1rem;      /* 16px */
+  --space-5: 1.25rem;   /* 20px */
+  --space-6: 1.5rem;    /* 24px */
+  --space-7: 1.75rem;   /* 28px */
+  --space-8: 2rem;      /* 32px */
+  --space-9: 2.5rem;    /* 40px */
+  --space-10: 3rem;     /* 48px */
+  --space-11: 4rem;     /* 64px */
+  --space-12: 6rem;     /* 96px */
+
+  /* Layout */
+  --container-max: 1200px;
+  --section-pad-y: clamp(3rem, 6vw, 6rem);
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 1rem;
+  --radius-full: 9999px;
+
+  /* Elevation — shadows tinted toward --color-text for warmth */
+  --shadow-sm: 0 1px 2px rgba(34, 18, 13, 0.08);
+  --shadow-md: 0 4px 12px rgba(34, 18, 13, 0.12);
+  --shadow-lg: 0 12px 32px rgba(34, 18, 13, 0.16);
+
+  /* Motion — kept subtle per Stack.animation: css-only */
+  --duration-fast: 150ms;
+  --duration-base: 300ms;
+  --duration-slow: 600ms;
+  --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}

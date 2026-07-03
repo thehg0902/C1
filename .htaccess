@@ -1,0 +1,15 @@
+# HTTPS redirect
+RewriteEngine On
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Security headers
+<IfModule mod_headers.c>
+  Header set X-Content-Type-Options "nosniff"
+  Header set Referrer-Policy "strict-origin-when-cross-origin"
+  Header set X-Frame-Options "SAMEORIGIN"
+  Header set Permissions-Policy "camera=(), microphone=(), geolocation=()"
+  # Report-only until the QA click-path (forms, Calendly embed) has been
+  # verified under it - see .claude/skills/security-basics/SKILL.md rule 2.
+  Header set Content-Security-Policy-Report-Only "default-src 'self'; script-src 'self' assets.calendly.com; frame-src 'self' calendly.com; img-src 'self' data: calendly.com; style-src 'self' 'unsafe-inline' calendly.com; form-action 'self' https://formspree.io"
+</IfModule>

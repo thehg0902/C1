@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact | C Plus Roofing</title>
+  <meta name="description" content="Reach C Plus Roofing by phone, form, or booking. Serving Toronto and the GTA, 24/7 for emergencies.">
+  <link rel="preload" as="font" href="assets/fonts/archivo-extrabold-800.woff2" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="site-header__logo" href="index.html" aria-label="C Plus Roofing home">
+        <img src="assets/images/logo.webp" alt="C Plus Roofing" width="160" height="48">
+      </a>
+      <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="primary-nav" aria-label="Toggle menu">
+        <span class="nav-toggle__bar"></span>
+      </button>
+      <nav class="site-nav" id="primary-nav" aria-label="Primary">
+        <ul class="site-nav__list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="what-we-do.html">What We Do</a></li>
+          <li><a href="why-choose-us.html">Why We're the Best</a></li>
+          <li><a href="services.html">Service</a></li>
+          <li><a href="contact.html" aria-current="page">Contact</a></li>
+        </ul>
+      </nav>
+      <a class="site-header__phone" href="tel:+16477321484">
+        <span class="site-header__phone-label">Call now</span>
+        (647) 732-1484
+      </a>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <section class="section section--hero" id="hero">
+      <div class="container hero__inner">
+        <div class="hero__content">
+          <h1>Get in Touch</h1>
+          <p class="hero__subhead">Call, book a time, or send us the details &mdash; whatever's easiest for you.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--contact" id="contact">
+      <div class="container contact__inner">
+        <div class="contact__direct">
+          <h2>Talk to Us Now</h2>
+          <p><a class="btn btn--primary" href="tel:+16477321484">Call (647) 732-1484</a></p>
+          <p>Available 24/7 for emergencies. Serving Toronto and the GTA.</p>
+
+          <h3>Book a Time</h3>
+          <div class="calendly-embed" data-calendly-embed data-calendly-url="https://calendly.com/YOUR_CALENDLY_LINK">
+            <p>Online booking coming soon &mdash; <a href="tel:+16477321484">call us</a> in the meantime to schedule.</p>
+          </div>
+
+          <img src="assets/images/contact-rooftop.webp" alt="Residential rooftop in the Toronto area serviced by C Plus Roofing" loading="lazy" width="1000" height="750" class="contact__photo" data-animate>
+        </div>
+
+        <div class="contact__form">
+          <h2>Send Us the Details</h2>
+          <p>Tell us what's going on and we'll get back to you.</p>
+          <form class="contact-form" data-form="formspree" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+            <div class="contact-form__honeypot" aria-hidden="true">
+              <label for="_gotcha">Leave this field blank</label>
+              <input type="text" id="_gotcha" name="_gotcha" tabindex="-1" autocomplete="off">
+            </div>
+
+            <label for="name">Name <span aria-label="required">*</span></label>
+            <input type="text" id="name" name="name" autocomplete="name" required>
+
+            <label for="phone">Phone <span aria-label="required">*</span></label>
+            <input type="tel" id="phone" name="phone" autocomplete="tel" required>
+
+            <label for="message">What's going on? <span aria-label="required">*</span></label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+
+            <button type="submit" class="btn btn--primary">Send</button>
+            <div class="form-status" data-form-status role="status" aria-live="polite"></div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="section section--footer" id="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <img src="assets/images/logo.webp" alt="C Plus Roofing" width="140" height="42">
+        <p>Family-owned roofing, serving Toronto and the GTA for 15+ years.</p>
+      </div>
+      <nav class="footer__nav" aria-label="Footer">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="what-we-do.html">What We Do</a></li>
+          <li><a href="why-choose-us.html">Why We're the Best</a></li>
+          <li><a href="services.html">Service</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="footer__contact">
+        <a href="tel:+16477321484">(647) 732-1484</a>
+        <p>Toronto &amp; the GTA &middot; 24/7 Emergency Service</p>
+      </div>
+    </div>
+    <div class="container footer__legal">
+      <p>&copy; 2026 C Plus Roofing Inc. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js" defer></script>
+  <script src="js/animations.js" defer></script>
+</body>
+</html>
