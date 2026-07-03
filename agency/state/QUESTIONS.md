@@ -53,3 +53,16 @@ agency/state/DECISIONS.md; kept here only as an audit trail.
       lazy-load script in main.js detects the placeholder and leaves the
       static "call us to schedule" fallback link active instead of loading
       a broken widget.
+
+## Open - retainer edit (2026-07-03)
+
+- [ ] Q: Real testimonial quotes for the new Home page testimonials
+      section - who said it (name, and city/neighbourhood if they're
+      comfortable) and the exact quote (verbatim, trimming with [...] is
+      fine, rewriting is not)? Need 3 to fill the section (client.md's
+      "leave empty space to add later" note - this is that later).
+      A: (pending) - index.html currently ships with 3
+      `[PLACEHOLDER: ...]` testimonial cards (quote + name) so the section
+      exists and is styled; qa-review's automated check will correctly
+      FAIL on these until real quotes replace them - do not ship to
+      production with placeholders still in place.

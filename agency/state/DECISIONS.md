@@ -302,3 +302,30 @@ the forms and booking skills' job in Phase 5, not in scope here.
 - Verified live: currentTime wrapped from ~4.8s back to ~0.8s after
   waiting past the video's 7s duration, confirming it loops rather than
   stopping.
+
+## Retainer edit - testimonials section added to Home (2026-07-03)
+
+- decided-by: human | Reverses the Phase 1 architecture decision to omit
+  `testimonials` site-wide (client.md said "leave empty space to add
+  later" and none were supplied at build time - see that decision
+  earlier in this log). Human now wants the section built now, content
+  later.
+- Markup follows the canonical component template exactly
+  (`.claude/skills/components/templates/sections.html`):
+  `<figure class="testimonial"><blockquote
+  class="testimonial__quote">...<figcaption
+  class="testimonial__author">...`, inside the existing `.card-grid`
+  (reused, not a new grid system). 3 cards per the components skill rule
+  ("static grid up to 3; carousel only for 4+ AND client approval").
+- Placed on index.html between `about` and `gallery` - trust-building
+  flow: services -> about -> testimonials -> gallery -> faq -> cta.
+- Content is `[PLACEHOLDER: ...]` for all 3 quotes and names - the hard
+  invariant against inventing testimonials applies regardless of how
+  much the human wants the section to exist visually. Logged as an open
+  question in agency/state/QUESTIONS.md. qa-review's automated check
+  will correctly FAIL on these placeholders until real quotes arrive -
+  this is expected and by design, not a bug to silently work around.
+- New CSS block `.testimonial`/`.testimonial__quote`/`.testimonial__author`
+  in components.css, token-only (var(--color-surface),
+  var(--color-border), var(--color-text-muted), etc.), reuses the
+  existing `.card-grid` layout so no new grid CSS was needed.

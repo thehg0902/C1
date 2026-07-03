@@ -355,6 +355,31 @@
   background: var(--color-surface);
 }
 
+/* ---------- Testimonials ---------- */
+.testimonial {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  box-shadow: var(--shadow-sm);
+  margin: 0;
+}
+
+.testimonial__quote {
+  margin: 0 0 var(--space-4);
+  font-size: var(--text-lg);
+  line-height: var(--leading-normal);
+  color: var(--color-text);
+}
+
+.testimonial__quote::before { content: "\201C"; }
+.testimonial__quote::after { content: "\201D"; }
+
+.testimonial__author {
+  font-weight: 700;
+  color: var(--color-text-muted);
+}
+
 /* ---------- Contact ---------- */
 .contact__inner {
   display: grid;
