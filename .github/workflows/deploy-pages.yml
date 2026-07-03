@@ -23,11 +23,20 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Assemble site (src/ + assets/ as siblings, matching local layout)
+      - name: Assemble site (src/ + assets/ flattened into one root)
         run: |
           mkdir -p _site
           cp -r src/. _site/
           cp -r assets _site/assets
+          # Source HTML/CSS reference assets/ as if it were one directory
+          # above src/ (its real position in this repo, per
+          # contracts/file-structure.md). Flattening src/*'s contents to
+          # the artifact root here puts assets/ at the SAME level instead,
+          # so strip one "../" from every reference: HTML's "../assets/"
+          # -> "assets/", and CSS's "../../assets/" -> "../assets/" (the
+          # find/replace lands correctly for both in one pass, since
+          # "../../assets/" contains "../assets/" as its tail).
+          grep -rlZ '\.\./assets/' _site --include='*.html' --include='*.css' | xargs -0 -r sed -i 's#\.\./assets/#assets/#g'
 
       - uses: actions/configure-pages@v5
 
